@@ -1,0 +1,6 @@
+-sname ingester
+
+-setcookie ingester_cookie
+
++K true
++A30
