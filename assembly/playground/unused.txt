@@ -1,0 +1,22 @@
+atoi:
+    prologue:
+        pushq %rbp
+        movq %rsp, %rbp
+        # subq $8, %rsp # allocate local variable for index
+
+    body:
+        # move null terminator to newly allcoated variable
+        movq $0, %rsi
+        movq 16(%rbp, %rsi, 1), %rax # First argument *[]char
+        cmpq $0, %rax
+        je epilogue # If current char is null terminated char, then jmp epilogue
+        subq $ZERO_ASCII, %rax
+        imulq $10, %r
+    loop_atoi:
+        movb (%rax, %rsi)
+
+
+    epilogue:
+        movq %rbp, %rsp
+        popq %rbp
+        ret
