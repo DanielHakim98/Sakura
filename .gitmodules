@@ -1,0 +1,3 @@
+[submodule "multilang/Give-Me-The-Damn-Data"]
+	path = multilang/Give-Me-The-Damn-Data
+	url = git@github.com:DanielHakim98/Give-Me-The-Damn-Data.git
