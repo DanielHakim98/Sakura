@@ -16,3 +16,6 @@
 [submodule "multilang/useless-todo"]
 	path = multilang/useless-todo
 	url = git@github.com:DanielHakim98/Useless-TODO.git
+[submodule "multilang/advent-of-code-2023"]
+	path = multilang/advent-of-code-2023
+	url = git@github.com:DanielHakim98/AOC2023.git
