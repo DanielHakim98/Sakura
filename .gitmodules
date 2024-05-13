@@ -13,3 +13,6 @@
 [submodule "go/useless-todo"]
 	path = go/useless-todo
 	url = git@github.com:DanielHakim98/Useless-TODO.git
+[submodule "multilang/useless-todo"]
+	path = multilang/useless-todo
+	url = git@github.com:DanielHakim98/Useless-TODO.git
