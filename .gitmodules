@@ -4,3 +4,6 @@
 [submodule "rust/caesar-cipher"]
 	path = rust/caesar-cipher
 	url = git@github.com:DanielHakim98/Rust-Caesar-Cipher.git
+[submodule "assembly/caesar-cipher"]
+	path = assembly/caesar-cipher
+	url = git@github.com:DanielHakim98/Overcomplicated_Caesar-Cipher.git
