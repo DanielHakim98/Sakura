@@ -7,3 +7,6 @@
 [submodule "assembly/caesar-cipher"]
 	path = assembly/caesar-cipher
 	url = git@github.com:DanielHakim98/Overcomplicated_Caesar-Cipher.git
+[submodule "go/destroyer-of-worlds"]
+	path = go/destroyer-of-worlds
+	url = git@github.com:DanielHakim98/destroyer-of-worlds.git
