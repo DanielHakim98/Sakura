@@ -38,6 +38,31 @@ def two_sum_2(nums: list[int], target: int):
             return [left + 1, right + 1]
 
 
+def merge_sorted_array(nums1: list[int], m: int, nums2: list[int], n: int):
+    if m == 0:
+        nums1[0:] = nums2[0:]
+        return
+    if n == 0:
+        return
+
+    current_pointer = m + n - 1
+    pointer_1 = m -1
+    pointer_2 = n -1
+
+    while current_pointer >= 0 and pointer_2 >= 0:
+        if pointer_1 < 0:
+            nums1[current_pointer] = nums2[pointer_2]
+            pointer_2 -= 1
+            current_pointer -= 1
+            continue
+        if nums2[pointer_2] > nums1[pointer_1]:
+            nums1[current_pointer] = nums2[pointer_2]
+            pointer_2 -= 1
+        else:
+            nums1[current_pointer] = nums1[pointer_1]
+            pointer_1 -= 1
+        current_pointer -= 1
+
 def main():
     # print(squares_sorted_array([-4, -1, 0, 3, 10]))
     print(threesum([-1, 0, 1, 2, -1, -4]))
