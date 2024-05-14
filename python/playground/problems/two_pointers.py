@@ -46,8 +46,8 @@ def merge_sorted_array(nums1: list[int], m: int, nums2: list[int], n: int):
         return
 
     current_pointer = m + n - 1
-    pointer_1 = m -1
-    pointer_2 = n -1
+    pointer_1 = m - 1
+    pointer_2 = n - 1
 
     while current_pointer >= 0 and pointer_2 >= 0:
         if pointer_1 < 0:
@@ -62,6 +62,26 @@ def merge_sorted_array(nums1: list[int], m: int, nums2: list[int], n: int):
             nums1[current_pointer] = nums1[pointer_1]
             pointer_1 -= 1
         current_pointer -= 1
+
+
+def valid_palindrome_2(s: str) -> bool:
+    left_pointer = 0
+    right_pointer = len(s) - 1
+    while left_pointer < right_pointer:
+        left_val, right_val = s[left_pointer], s[right_pointer]
+        if left_val != right_val:
+            s_exclude_left = s[left_pointer + 1 : right_pointer + 1]
+            s_exclude_right = s[left_pointer:right_pointer]
+
+            return (
+                s_exclude_left == s_exclude_left[::-1]
+                or s_exclude_right == s_exclude_right[::-1]
+            )
+        left_pointer += 1
+        right_pointer -= 1
+
+    return True
+
 
 def main():
     # print(squares_sorted_array([-4, -1, 0, 3, 10]))
