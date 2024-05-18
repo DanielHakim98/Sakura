@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 import unittest
 from problems.sliding_windows import (
+    contain_duplicate_2,
     max_average_of_k_window,
     smallest_subarray,
     longest_substring_distinct_k,
@@ -98,6 +99,28 @@ class TestLongestRepeatingCharacterReplace(unittest.TestCase):
 
         for case in test_cases:
             got = longest_repeat_char_replace(case.input[0], case.input[1])
+            self.assertEqual(
+                got,
+                case.want,
+                f"\nFailed test '{case.name}'. got: '{got}', want: '{case.want}'.",
+            )
+
+
+class TestContainsDuplicate2(unittest.TestCase):
+    def test_contain_duplicate_2(self):
+        @dataclass
+        class TestCase:
+            name: str
+            input: tuple[list[int], int]
+            want: bool
+
+        test_cases = [
+            TestCase(name="example 1", input=([1, 2, 3, 1], 3), want=True),
+            TestCase(name="example 2", input=([1, 0, 1, 1], 1), want=True),
+            TestCase(name="example 3", input=([1, 2, 3, 1, 2, 3], 2), want=False),
+        ]
+        for case in test_cases:
+            got = contain_duplicate_2(case.input[0], case.input[1])
             self.assertEqual(
                 got,
                 case.want,

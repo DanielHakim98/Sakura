@@ -105,5 +105,22 @@ def longest_repeat_char_replace(string: str, k: int) -> int:
     return max_length
 
 
+def contain_duplicate_2(nums: list[int], k: int) -> bool:
+    unique = {}
+    start_win = 0
+    for end_win in range(len(nums)):
+        if end_win - start_win > k:
+            del unique[nums[start_win]]
+            start_win += 1
+
+        if nums[end_win] in unique:
+            return True
+
+        unique[nums[end_win]] = {}
+
+    return False
+
+
 if __name__ == "__main__":
-    print(longest_substring_distinct_k("araaci", 1))
+    # print(longest_substring_distinct_k("araaci", 1))
+    contain_duplicate_2([1, 0, 1, 1], 1)
