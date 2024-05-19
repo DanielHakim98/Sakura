@@ -83,6 +83,19 @@ def valid_palindrome_2(s: str) -> bool:
     return True
 
 
+def move_zeroes(nums: list[int]) -> None:
+    total_zero = 0
+    left_pointer = 0
+    for pointer in range(len(nums)):
+        if nums[pointer] == 0:
+            total_zero += 1
+        else:
+            nums[left_pointer] = nums[pointer]
+            left_pointer += 1
+    for idx in range(len(nums) - total_zero, len(nums)):
+        nums[idx] = 0
+
+
 def main():
     # print(squares_sorted_array([-4, -1, 0, 3, 10]))
     print(threesum([-1, 0, 1, 2, -1, -4]))

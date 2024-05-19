@@ -1,6 +1,7 @@
 import unittest
 from dataclasses import dataclass
 from problems.two_pointers import (
+    move_zeroes,
     threesum,
     two_sum_2,
     merge_sorted_array,
@@ -113,6 +114,37 @@ class TestValidPalindrome2(unittest.TestCase):
         ]
         for case in test_cases:
             got = valid_palindrome_2(case.input)
+            self.assertEqual(
+                got,
+                case.want,
+                f"\nFailed test '{case.name}'. got: '{got}', want: '{case.want}'.",
+            )
+
+
+class TestMoveZeros(unittest.TestCase):
+    def test_move_zeros(self):
+        @dataclass
+        class TestCase:
+            name: str
+            input: list[int]
+            want: list[int]
+
+        test_cases = [
+            TestCase(name="example 1", input=[0, 1, 0, 3, 12], want=[1, 3, 12, 0, 0]),
+            TestCase(name="example 2", input=[0], want=[0]),
+            TestCase(name="example 3", input=[1, 2, 3], want=[1, 2, 3]),
+            TestCase(
+                name="example 4", input=[-4, -1, 0, 3, 7, 0], want=[-4, -1, 3, 7, 0, 0]
+            ),
+            TestCase(
+                name="example 5",
+                input=[-2, 0, 0, 0, -1, 0, 0, 3],
+                want=[-2, -1, 3, 0, 0, 0, 0, 0],
+            ),
+        ]
+        for case in test_cases:
+            got = case.input
+            move_zeroes(case.input)
             self.assertEqual(
                 got,
                 case.want,
