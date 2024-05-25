@@ -96,9 +96,29 @@ def move_zeroes(nums: list[int]) -> None:
         nums[idx] = 0
 
 
+def max_area(heights: list[int]) -> int:
+    max_area = min(heights[0], heights[1]) * (1 - 0)
+    start, end = 0, 1
+    for cur in range(2, len(heights)):
+        cmp_end = min(heights[cur], heights[end]) * (cur - end)
+        cmp_start = min(heights[cur], heights[start]) * (cur - start)
+
+        if cmp_end >= cmp_start:
+            if cmp_end > max_area:
+                max_area = cmp_end
+                start = end
+                end = cur
+        else:
+            if cmp_start > max_area:
+                max_area = cmp_start
+                end = cur
+    return max_area
+
+
 def main():
+    print(max_area([2, 3, 10, 5, 7, 8, 9]))
     # print(squares_sorted_array([-4, -1, 0, 3, 10]))
-    print(threesum([-1, 0, 1, 2, -1, -4]))
+    # print(threesum([-1, 0, 1, 2, -1, -4]))
 
 
 if __name__ == "__main__":

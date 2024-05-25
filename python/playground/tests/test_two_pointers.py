@@ -6,6 +6,7 @@ from problems.two_pointers import (
     two_sum_2,
     merge_sorted_array,
     valid_palindrome_2,
+    max_area,
 )
 
 
@@ -150,6 +151,48 @@ class TestMoveZeros(unittest.TestCase):
                 case.want,
                 f"\nFailed test '{case.name}'. got: '{got}', want: '{case.want}'.",
             )
+
+
+class TestContainerWithMostWater(unittest.TestCase):
+    def test_example_1(self):
+        input_ = [1, 8, 6, 2, 5, 4, 8, 3, 7]
+        got = max_area(input_)
+        want = 49
+        self.assertEqual(
+            got,
+            want,
+            f"\nFailed test '{input_}'. got: '{got}', want: '{want}'.",
+        )
+
+    def test_example_2(self):
+        input_ = [1, 1]
+        got = max_area(input_)
+        want = 1
+        self.assertEqual(
+            got,
+            want,
+            f"\nFailed test '{input_}'. got: '{got}', want: '{want}'.",
+        )
+
+    def test_example_3(self):
+        input_ = [1, 2, 4, 3]
+        got = max_area(input_)
+        want = 4
+        self.assertEqual(
+            got,
+            want,
+            f"\nFailed test '{input_}'. got: '{got}', want: '{want}'.",
+        )
+
+    def test_example_4(self):
+        input_ = [2, 3, 10, 5, 7, 8, 9]
+        got = max_area(input_)
+        want = 36
+        self.assertEqual(
+            got,
+            want,
+            f"\nFailed test '{input_}'. got: '{got}', want: '{want}'.",
+        )
 
 
 if __name__ == "__main__":
