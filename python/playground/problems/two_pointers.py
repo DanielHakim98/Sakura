@@ -97,21 +97,18 @@ def move_zeroes(nums: list[int]) -> None:
 
 
 def max_area(heights: list[int]) -> int:
-    max_area = min(heights[0], heights[1]) * (1 - 0)
-    start, end = 0, 1
-    for cur in range(2, len(heights)):
-        cmp_end = min(heights[cur], heights[end]) * (cur - end)
-        cmp_start = min(heights[cur], heights[start]) * (cur - start)
+    left = 0
+    right = len(heights) - 1
+    max_area = 0
 
-        if cmp_end >= cmp_start:
-            if cmp_end > max_area:
-                max_area = cmp_end
-                start = end
-                end = cur
+    while left < right:
+        area = min(heights[left], heights[right]) * (right - left)
+        if area > max_area:
+            max_area = area
+        if heights[left] <= heights[right]:
+            left += 1
         else:
-            if cmp_start > max_area:
-                max_area = cmp_start
-                end = cur
+            right -= 1
     return max_area
 
 
