@@ -2,9 +2,9 @@
 
 TARGET_DIR := ./build
 
-build: virtual_func.cpp
+build: ${SOURCE}.cpp
 	mkdir -p ${TARGET_DIR}
-	clang++ -std=c++11 -o ${TARGET_DIR}/virtual_func virtual_func.cpp
+	clang++ -std=c++11 -o ${TARGET_DIR}/${SOURCE} ${SOURCE}.cpp
 
 clean:
 	rm -rf build
